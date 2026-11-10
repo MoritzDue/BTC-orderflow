@@ -35,4 +35,16 @@ Frozen inputs and exported outputs of the original study. The notebooks and test
 
 ## Naming
 
-`D1`–`D7` are daily quantities and `Q1`–`Q7` their means over a test period; the main README lists what each one measures. Returns and costs are in basis points (1 bp = 0.01%), MSE in bp².
+`D1`–`D7` are daily quantities and `Q1`–`Q7` their means over a test period. Returns and costs are in basis points (1 bp = 0.01%), MSE in bp².
+
+| ID | quantity | test period |
+|---|---|---|
+| Q1 | forecast gain over the zero forecast (MSE difference) | first (Nov 10–29) |
+| Q2 | forecast gain over the one-variable OFI model ² | first |
+| Q3 | break-even fee of the taker policy | first |
+| Q4 | execution saving against TWAP | second (Dec 1 – Jan 14) |
+| Q5 | execution saving against random timing | second |
+| Q6 | forecast gain over the zero forecast | second |
+| Q7 | execution saving against the shifted-forecast placebo | second |
+
+² The OFI benchmark uses raw OFI linearly. OFI's relation to returns is S-shaped and fat-tailed, so this comparison is conservative.
