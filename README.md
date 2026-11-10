@@ -1,7 +1,5 @@
 # Order-book imbalance in BTCUSDT: forecasting, standalone trading and execution
 
-![python](https://img.shields.io/badge/python-3.13%2B-blue)
-
 An empirical study of the Bybit BTCUSDT perpetual. The limit order book is reconstructed from raw exchange data, a 5-second return forecast is built from its state, and the forecast is evaluated in two applications: as a standalone taker strategy and as a timing signal for order execution.
 
 ## Key results
