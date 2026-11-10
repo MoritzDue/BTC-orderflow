@@ -1,0 +1,194 @@
+{
+ "purpose": "Every number quoted in README.md and the notebooks, copied from the frozen results of the original study. sources: SHA-256 of the original result files they were copied from (see provenance.json).",
+ "sources": {
+  "results/m7/m7_results.json": "afa0fbb51ad94dcfce86abb1cef0ff88a49b1760239d0e2a5c68df962717455f",
+  "results/m9/m9_report.json": "991ea7ec2795182ad7bcf33e4edc79493ad30b202c92a2574f4bda2b5bcbe623",
+  "results/m13/m13_results.json": "ed3f93b83e47e2529c7b662bcead09c261615bcbc14fc42b70c160f072b9e56f",
+  "results/m13/m13_report.json": "007c38ddb3bd3622cf6899c13aa8d9b784bbf958f6f8ad4391c97460adfb07aa",
+  "results/m14/m14_repro_pin.json": "dd924c1be42f55e085f8cd399d125037dd28e9d92ae3de0c2c31538b5f374363"
+ },
+ "signal": {
+  "first_test_days": 20,
+  "first_test_gain_vs_zero": {
+   "estimate": 0.11269150428775263,
+   "t_interval": [0.09920390642361505, 0.12617910215189018],
+   "bootstrap": {"1": [0.10064124104701559, 0.12481982514577394], "2": [0.10156369113898779, 0.12761273258443], "5": [0.10251420738473128, 0.13066451162994502]},
+   "class": "robustly_positive"
+  },
+  "first_test_gain_vs_ofi": {
+   "estimate": 0.10258046140157258,
+   "t_interval": [0.09098690746047808, 0.11417401534266708],
+   "bootstrap": {"1": [0.09230934317245879, 0.11308123881760325], "2": [0.09307207101471096, 0.11553460325098525], "5": [0.09381109371058408, 0.11860839749357636]},
+   "class": "robustly_positive"
+  },
+  "first_test_r2_pooled": {"ridge": 0.022689807380248617, "ofi": 0.0020358208555391055, "ridge_negated": -0.055123002613138405},
+  "first_test_days_with_gain": 20,
+  "second_test_days": 45,
+  "second_test_gain_vs_zero": {
+   "estimate": 0.05910698618453434,
+   "bootstrap": {"1": [0.04695554258445211, 0.07072656388047202], "2": [0.04411264677591634, 0.07398029203462225], "5": [0.04081932581668604, 0.0739012349640574]},
+   "t_interval": [0.04682528690767894, 0.07138868546138974],
+   "class": "pos"
+  },
+  "second_test_r2_pooled": {"ridge": 0.022396808365295562, "ofi": 0.0020044296070268475, "ridge_negated": -0.0770203371553786},
+  "second_test_days_with_positive_r2": 43,
+  "second_test_gain_vs_ofi_descriptive": {
+   "estimate": 0.05381709475144901,
+   "t_interval_descriptive": [0.04240641639624588, 0.06522777310665215],
+   "T": 45,
+   "days_positive": 43,
+   "sd_daily": 0.03075377384359058
+  }
+ },
+ "trade_alone": {
+  "break_even_fee": {
+   "estimate_bp": 0.16222693191980792,
+   "bootstrap": {"1": [0.13930909698789146, 0.18497321256383625], "2": [0.13296635284640698, 0.18931801312772945], "5": [0.12635248604169322, 0.189398321835834]},
+   "vs_zero": "robustly_positive",
+   "vs_5.5bp": "robustly_at_or_below",
+   "reading": "positive_fee_budget_below_5.5bp"
+  },
+  "latency_scenarios": {
+   "0-0": {"f_star_bp": 0.32699374515858975, "round_trips": 56901, "traded_usdt": 10524531.588,
+           "net_usdt_by_fee": {"0": 344.1456, "1": -708.3075588, "2": -1760.7607176, "3": -2813.2138764, "11/2": -5444.3467734}},
+   "100-100": {"f_star_bp": 0.16222693191980792, "round_trips": 78589, "traded_usdt": 14544798.2778,
+               "net_usdt_by_fee": {"0": 235.9558, "1": -1218.52402778, "2": -2673.00385556, "3": -4127.48368334, "11/2": -7763.68325279}},
+   "500-500": {"f_star_bp": 0.05643894933471741, "round_trips": 96749, "traded_usdt": 17932669.0509,
+               "net_usdt_by_fee": {"0": 101.2101, "1": -1692.05680509, "2": -3485.32371018, "3": -5278.59061527, "11/2": -9761.757877995}},
+   "1000-1000": {"f_star_bp": 0.011728315711828717, "round_trips": 90794, "traded_usdt": 16836859.175,
+                 "net_usdt_by_fee": {"0": 19.7468, "1": -1663.9391175, "2": -3347.625035, "3": -5031.3109525, "11/2": -9240.52574625}}
+  },
+  "cost_aware_policy": {"selected": "never_trade", "abstention": true, "net_usdt": 0.0, "traded_usdt": 0.0},
+  "longer_horizons_reading": {
+   "reading": "inconclusive",
+   "per_horizon": {"1": "no_trades", "5": "no_trades", "15": "no_trades", "60": "no_trades", "300": "missing_execution_evidence"},
+   "surplus_horizons_s": [],
+   "scope": "evaluated ridge threshold policies only: screened trades replayed at arrival states, no position interaction and no depth cap (would_cap counted)"
+  },
+  "longer_horizons": {
+   "1": {"r2_pooled": 0.0437929828638467,
+         "abs_f_quantiles_bp": {"p50": 0.13604481067352353, "p90": 0.21908927490747665, "p99": 0.24633910080137414},
+         "c_bp": {"fold1": 11.009556359840108, "fold2": 11.00958355484524},
+         "p_h": 0.0, "screened": 0, "priced": 0, "missing": 0, "status": {}, "mean_net_bp": null},
+   "5": {"r2_pooled": 0.025494839092679578,
+         "abs_f_quantiles_bp": {"p50": 0.2581915798144335, "p90": 0.41472355000760697, "p99": 0.47795570547289556},
+         "c_bp": {"fold1": 11.009556396632526, "fold2": 11.009583589725128},
+         "p_h": 0.0, "screened": 0, "priced": 0, "missing": 0, "status": {}, "mean_net_bp": null},
+   "15": {"r2_pooled": 0.010962595248405371,
+          "abs_f_quantiles_bp": {"p50": 0.30226193431046045, "p90": 0.47929141115453866, "p99": 0.5260504563750742},
+          "c_bp": {"fold1": 11.009556488629421, "fold2": 11.009583661909215},
+          "p_h": 0.0, "screened": 0, "priced": 0, "missing": 0, "status": {}, "mean_net_bp": null},
+   "60": {"r2_pooled": 0.002268092241368591,
+          "abs_f_quantiles_bp": {"p50": 0.29363239187531526, "p90": 0.5512866570873873, "p99": 0.8025099289143756},
+          "c_bp": {"fold1": 11.009556353107886, "fold2": 11.009583583403831},
+          "p_h": 0.0, "screened": 0, "priced": 0, "missing": 0, "status": {}, "mean_net_bp": null},
+   "300": {"r2_pooled": 0.0005898502508132619,
+           "abs_f_quantiles_bp": {"p50": 0.2586953530423891, "p90": 0.5635876427557318, "p99": 0.8268117232179248},
+           "c_bp": {"fold1": 11.009556725940246, "fold2": 11.009584097034011},
+           "p_h": 3.478099566396921e-05, "screened": 30, "priced": 29, "missing": 1,
+           "status": {"priced": 29, "unidentified_hour": 1},
+           "mean_net_bp": {"point": -10.008311119675346, "ci95": [-15.878104453995899, -0.5368095455190287], "undefined_resamples": 0}}
+  }
+ },
+ "where_edge_goes": {
+  "decomposition_bp": {"G": 0.32262481959580147, "H": 0.33421486527895233, "Ci": 0.005817708077945857, "Co": 0.005772337605205048,
+                              "Hd": 0.6097891671263639, "A": 0.27557430184741116, "abs_f": 0.4429053375502606},
+  "decomposition_ci95": {
+   "G": [0.2816665289434668, 0.3590349542740117],
+   "H": [0.2932573167666958, 0.37049546799774596],
+   "Ci": [0.0056043499265074, 0.006043058733968992],
+   "Co": [0.005538904766704147, 0.006050654397654128],
+   "Hd": [0.5741698878219748, 0.6441223096982993],
+   "A": [0.25183981344998246, 0.29989880689891946],
+   "abs_f": [0.4405987753357867, 0.4452609150539855]
+  },
+  "decomposition_round_trips": 78589,
+  "decomposition_identities": "G = H - Ci - Co and H = Hd - A, exact in integers for every trade",
+  "fixed_cohort_break_even_bp": {"0": 0.20176235099231957, "100": 0.16222693191980792, "500": 0.11600188447033986, "1000": 0.07440315088121649},
+  "fixed_cohort_ci95": {
+   "0": [0.18140979595087414, 0.21986576366476127],
+   "100": [0.1416392428491787, 0.180173899505459],
+   "500": [0.09312592470711668, 0.13557018590246392],
+   "1000": [0.052506721871370524, 0.09331995524067944]
+  },
+  "paired_delay_break_even_bp": {"0": 0.2985384402419127, "100": 0.16222693191980792, "500": 0.08114887553366533, "1000": 0.03513906687336095},
+  "decay_slope_ratio": {"0": 1.0, "0.5": 0.6347476411198351, "0.9": 0.47429104157307367, "1": 0.4444774524438268, "2": 0.2385530418990071,
+                           "5": 0.05481381251206099, "10": 0.013451254491065804, "30": -0.015772455310633374},
+  "decay_ic": {"0": 0.15275515653984278, "0.5": 0.09673307313773145, "0.9": 0.07242023618017632, "1": 0.06789608705196742, "2": 0.03644005149986713,
+                  "5": 0.008373065684528455, "10": 0.0020547538977595554, "30": -0.0024093197554122298}
+ },
+ "execution_value": {
+  "T": 45,
+  "eligible_parents": 4320,
+  "unresolved_parents": 0,
+  "Q4_vs_twap": {
+   "estimate": 0.17714419710659798,
+   "bootstrap": {"1": [0.1600669062649763, 0.19518339236344076], "2": [0.15462010552144365, 0.19874879879917692], "5": [0.15081799616136896, 0.20177619853175202]},
+   "t_interval": [0.15887185232074452, 0.19541654189245145],
+   "class": "pos"
+  },
+  "Q5_vs_random": {
+   "estimate": 0.17687132734566144,
+   "bootstrap": {"1": [0.1595845752927816, 0.19489375655086433], "2": [0.15411277825833286, 0.1988147486689118], "5": [0.1507287191998722, 0.20202692194344568]},
+   "t_interval": [0.15845036619924135, 0.19529228849208152],
+   "class": "pos"
+  },
+  "Q7_vs_shift": {
+   "estimate": 0.17740716095553125,
+   "bootstrap": {"1": [0.15965307544978127, 0.1955702942765152], "2": [0.15463846207557438, 0.1993081222519709], "5": [0.15139184164304498, 0.20233282015571238]},
+   "t_interval": [0.158968074706712, 0.19584624720435048],
+   "class": "pos"
+  },
+  "reading": {
+   "row": 3,
+   "text": "Execution value supported, consistent with forecast information",
+   "qualifiers": [],
+   "classes": {"Q4": "pos", "Q5": "pos", "Q7": "pos"},
+   "q6_class": "pos"
+  },
+  "warnings": {"size_warning": false, "cap_warning": false, "texts": []},
+  "signal_size_share": 0.0429948224110126,
+  "signal_cap_share": 0.02801638446476665,
+  "twap_cap_share": 0.016011114400892795,
+  "descriptive_is_minus_twap_base": {"IS_random-twap": -0.000272869760936584, "IS_shift-twap": 0.0002629638489332662,
+                                     "IS_uniform-twap": -0.00019966935221244462, "IS_negated-twap": 0.17760778119603338},
+  "descriptive_D4_by_latency": {"lat0": 0.2197516213123755, "base": 0.17714419710659798, "lat500": 0.10276608366800828, "lat1000": 0.0682171552771633},
+  "descriptive_D4_by_tau": {"tau0": 0.17718231102244822, "tau1": 0.17718231102244822, "base": 0.17714419710659798, "tau30": 0.17710123115603937},
+  "capacity_line": {
+   "1": {"D4": 0.18031461021236247, "D5": 0.17997324171389945, "D7": 0.18057063127302264, "signal_size_share": 0.009205460002932167, "signal_cap_share": 0.0028619567475246382, "unresolved_parents": 0},
+   "5": {"D4": 0.17714419710659798, "D5": 0.17687132734566144, "D7": 0.17740716095553125, "signal_size_share": 0.0429948224110126, "signal_cap_share": 0.02801638446476665, "unresolved_parents": 0},
+   "10": {"D4": 0.17451660064319074, "D5": 0.17427724691190113, "D7": 0.17477365181273896, "signal_size_share": 0.07048002654382432, "signal_cap_share": 0.047776062343772976, "unresolved_parents": 0},
+   "20": {"D4": 0.17100013688456703, "D5": 0.17087604952596927, "D7": 0.17126416716310766, "signal_size_share": 0.12378372956164109, "signal_cap_share": 0.08018929932956488, "unresolved_parents": 0},
+   "50": {"D4": 0.16371219667513076, "D5": 0.16390545273650065, "D7": 0.16409168980937763, "signal_size_share": 0.2894550028164232, "signal_cap_share": 0.17025014775034047, "unresolved_parents": 0},
+   "100": {"D4": 0.15357000247725555, "D5": 0.154260177329053, "D7": 0.15410678694418276, "signal_size_share": 0.5189009004838075, "signal_cap_share": 0.3074096309318372, "unresolved_parents": 0},
+   "250": {"D4": 0.13013579845593456, "D5": 0.13188971795002083, "D7": 0.13097668958099365, "signal_size_share": 0.8408412231764624, "signal_cap_share": 0.5570421448954266, "unresolved_parents": 0}
+  },
+  "weekly_D4": {"2025-W49": 0.24214820040168683, "2025-W50": 0.19142308091729812, "2025-W51": 0.16010315789991855, "2025-W52": 0.1463299173690815,
+                "2026-W01": 0.15422917077880535, "2026-W02": 0.16124429164933182, "2026-W03": 0.19438137889468465},
+  "r0_delay": {
+   "sealed_counts": [129611, 26126, 18169, 13064, 9574, 7364, 6014, 4956, 4088, 40234],
+   "sealed_children": 259200,
+   "sealed_mean_s": 2.478233024691358,
+   "sealed_share_D9": 0.15522376543209876,
+   "design_counts": [172803, 44993, 29357, 19694, 14231, 10613, 8486, 6440, 5096, 33887],
+   "design_mean_s": 2.0674913194444446
+  },
+  "q4_comparison": {
+   "Q4_bp": 0.17714419710659798,
+   "heuristic_bp": 0.087,
+   "heuristic_validation_retention_bp": 0.077,
+   "design_D4_bp": 0.212,
+   "ratio_to_heuristic": 2.036140196627563,
+   "ratio_to_design": 0.8355858354084811,
+   "note": "descriptive; the success rule is robustly > 0, not a minimum size (pre-registered rule)"
+  },
+  "tau1_structural_note": "tau0 and tau1 give byte-identical fill-log content on all 45 sealed days (descriptive index content hashes). The replay keeps a depletion active on [a, a+tau). Submissions arrive at integer decision seconds plus a constant order delay, so with tau = 1 s every depletion expires exactly when the next submission can arrive. The tau = 1 s stress is therefore degenerate under the frozen grid. This is a descriptive limitation of the frozen scenario set, not a code defect; nothing was changed."
+ },
+ "reproduction": {
+  "n_days": 45,
+  "all_pass": true,
+  "environment": {"OMP_NUM_THREADS": "2", "OPENBLAS_NUM_THREADS": "2", "numpy": "2.5.4", "python": "3.14.4"},
+  "inference_identical": true,
+  "reading_row": 3
+ }
+}
