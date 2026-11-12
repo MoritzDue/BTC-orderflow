@@ -77,7 +77,7 @@ def main():
     a.set_axisbelow(True)
     a.text(0.6, 0.5, f'{TAKER_FEE_BP / f_star:.0f}× too small', transform=a.transAxes, ha='center',
            fontsize=11, fontweight='bold', color=INK)
-    title(a, '2', 'Too small to trade on its own', '≈ 45% of the predicted move is lost to an assumed 100 ms delay')
+    title(a, '2', 'Too small to trade on its own', '≈ 45% of the move is lost to the assumed latency (100 + 100 ms)')
 
     # 3. but it makes necessary trading cheaper
     a = ax[2]

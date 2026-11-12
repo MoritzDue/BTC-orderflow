@@ -1,5 +1,5 @@
 {
- "description": "Frozen 5 s ridge forecast (40-day refit, Oct 1 - Nov 9 2025, features at d = 100 ms) and the frozen execution-study parameters. Fixed before either test period was opened.",
+ "description": "Frozen 5 s ridge forecast (40-day refit, Oct 1 - Nov 9 2025, features at d = 100 ms) and the frozen execution-study parameters. The forecast model and taker threshold were fixed before the first test period; the execution parameters were fixed after the first test and before the second test period was downloaded.",
  "delay_ms": 100,
  "features": [
   "ofi_norm",
