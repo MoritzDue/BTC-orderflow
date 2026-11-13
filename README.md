@@ -74,4 +74,3 @@ The notebooks run from `results/` without raw data. `scripts/run_day.py` rebuild
 
 ---
 
-**Authorship.** I defined the research questions and the evaluation design: the training and test periods, the benchmarks and the decision rules for each test. I reviewed every plan, decided each freeze and interpreted the results, including the decision after the first test to study execution. Code and text were written with AI assistance (Anthropic Claude and OpenAI Codex, as developer and reviewer).
