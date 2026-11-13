@@ -22,13 +22,13 @@ An empirical study of the Bybit BTCUSDT perpetual. The limit order book is recon
 
 **Order book.** Snapshots and incremental updates are replayed in integer price and size units, with checks for sequence gaps and crossed books. Every second, the state of the book is recorded as it was visible strictly before the decision time, after an explicit market-data delay.
 
-**Model.** Eight features: order-flow imbalance, best-level and five-level book imbalance, trade imbalance, spread, last-second return, trade count and 30-second volatility. A ridge regression is fitted on 40 training days. Validation error is flat in λ, so the model is effectively OLS, and best-level and five-level book imbalance carry almost all of the weight.
+**Model.** Eight features: best-level and five-level book imbalance, order-flow imbalance, trade imbalance, spread, last-second return, trade count and 30-second volatility. A ridge regression is fitted on 40 training days. Validation error is flat in λ, so the model is effectively OLS, and best-level and five-level book imbalance carry almost all of the weight.
 
 **Evaluation.** The model and all decision rules were fixed on the training days and evaluated on 20 days (Nov 10–29). The execution study was then specified, frozen and evaluated on 45 later days (Dec 1 – Jan 14), together with a re-test of the unchanged forecast. Inference uses the day as the unit: a moving-block bootstrap over days (blocks of 1, 2 and 5) and a t-interval, each at level 1 − 0.05/3 (Bonferroni over the three primary quantities of each test). A result is classified only if all intervals agree: four for the daily means, three for the break-even fee, which is a ratio and has no t-interval. The re-test of the forecast in the second period is reported at the same level, outside its three primary quantities.
 
 ## Results
 
-**Forecast.** The forecast beats the zero forecast in both test periods and on 63 of 65 days. Its gain is smaller in the second period, but remains positive without refitting.
+**Forecast.** The forecast beats the zero forecast in both test periods and on 63 of 65 days. Its gain in bp² is smaller in the second period, which was calmer, but R² is unchanged and the forecast remains positive without refitting.
 
 ![Daily forecast gain over the zero forecast](figures/daily_forecast_gain.png)
 
@@ -73,4 +73,3 @@ python scripts/run_day.py 2025-12-01                 # rebuild and compare with 
 The notebooks run from `results/` without raw data. `scripts/run_day.py` rebuilds a test day from raw data and compares it with the original run (`results/reference_days.json`). All 45 days of the second test period and one day of the first (Nov 10) were rerun this way and matched exactly, in the pinned environment of `requirements.txt`; on other platforms the floating-point results may differ in the last digits. `scripts/fit_model.py` refits the model from the 40 training days.
 
 ---
-
